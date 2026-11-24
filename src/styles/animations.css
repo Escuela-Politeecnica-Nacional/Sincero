@@ -1,0 +1,73 @@
+/* =========================================================
+   Animaciones (suaves, sin parpadeos)
+   ========================================================= */
+@keyframes pop-in {
+  0% { opacity: 0; transform: translateY(14px) scale(0.98); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes bounce-in {
+  0% { opacity: 0; transform: scale(0.6); }
+  70% { opacity: 1; transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+
+@keyframes confetti-fall {
+  0% { transform: translateY(-10vh) rotate(0deg); }
+  100% { transform: translateY(110vh) rotate(540deg); }
+}
+
+@keyframes rays-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes breathe-in {
+  from { transform: scale(var(--breath-min)); }
+  to { transform: scale(var(--breath-max)); }
+}
+
+@keyframes breathe-out {
+  from { transform: scale(var(--breath-max)); }
+  to { transform: scale(var(--breath-min)); }
+}
+
+@keyframes drift {
+  0%, 100% { transform: translateX(0) scale(var(--cloud-scale, 1)); }
+  50% { transform: translateX(18px) scale(var(--cloud-scale, 1)); }
+}
+
+.anim-pop {
+  animation: pop-in 0.45s ease both;
+}
+.anim-bounce {
+  animation: bounce-in 0.6s cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
+}
+.anim-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Desactivar animaciones: preferencia del sistema, ajuste del usuario o modo calma */
+html[data-motion='off'] *,
+html[data-motion='off'] *::before,
+html[data-motion='off'] *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  scroll-behavior: auto !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

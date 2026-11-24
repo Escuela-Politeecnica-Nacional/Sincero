@@ -1,0 +1,341 @@
+/* =========================================================
+   Tarjeta de emoción (carita)
+   ========================================================= */
+.emotion-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+  min-height: 96px;
+  padding: 12px 18px 12px 14px;
+  border: 3px solid transparent;
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  text-align: left;
+  box-shadow: 0 5px 0 var(--emotion-color), var(--shadow-soft);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+button.emotion-card {
+  cursor: pointer;
+}
+button.emotion-card:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 0 var(--emotion-color), 0 14px 26px rgba(39, 72, 140, 0.16);
+}
+button.emotion-card:active:not(:disabled) {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 var(--emotion-color), var(--shadow-soft);
+}
+button.emotion-card:focus-visible {
+  box-shadow: 0 5px 0 var(--emotion-color), var(--focus-ring);
+}
+button.emotion-card:disabled {
+  cursor: default;
+}
+
+.emotion-card__face {
+  flex: none;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--emotion-color) 25%, white);
+  box-shadow: 0 0 0 3px #fff, 0 3px 8px rgba(0, 0, 0, 0.12);
+}
+.emotion-card__face img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.emotion-card__text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.emotion-card__name {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--ink);
+}
+.emotion-card__line {
+  width: 44px;
+  height: 7px;
+  border-radius: 99px;
+  background: var(--emotion-color);
+}
+.emotion-card__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  width: fit-content;
+  padding: 3px 10px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+.emotion-card__status--correct {
+  background: var(--green);
+  color: #fff;
+}
+.emotion-card__status--chosen {
+  background: var(--surface-muted);
+  color: var(--ink);
+}
+
+.emotion-card--correct {
+  border-color: var(--green);
+  background: linear-gradient(180deg, #ffffff, #e4f7ec);
+  box-shadow: 0 5px 0 var(--green-strong), var(--shadow-soft);
+}
+.emotion-card--chosen {
+  border: 3px dashed var(--ink-soft);
+}
+.emotion-card--sm {
+  min-height: 76px;
+  gap: 14px;
+}
+.emotion-card--sm .emotion-card__face {
+  width: 54px;
+  height: 54px;
+}
+.emotion-card--sm .emotion-card__name {
+  font-size: 1.25rem;
+}
+
+/* =========================================================
+   Insignias
+   ========================================================= */
+.badge-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 14px 12px 18px;
+  text-align: center;
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: 0 5px 0 #d8b878, var(--shadow-soft);
+}
+.badge-card__image {
+  width: 96px;
+  height: 104px;
+  object-fit: contain;
+}
+.badge-card__name {
+  font-size: 1.02rem;
+  font-weight: 900;
+}
+.badge-card__desc {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+.badge-card--locked {
+  background: var(--surface-locked);
+  box-shadow: none;
+}
+.badge-card--locked .badge-card__image {
+  opacity: 0.45;
+  filter: saturate(0.6);
+}
+.badge-card__lock {
+  margin-top: -2px;
+}
+
+/* =========================================================
+   Barra de actividad
+   ========================================================= */
+.activity-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 14px;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: var(--shadow-card);
+}
+.activity-header__center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.activity-header__title {
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+
+/* =========================================================
+   Panel de retroalimentación
+   ========================================================= */
+.feedback {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 22px;
+  margin-top: var(--gap);
+  padding: 18px 26px 18px 20px;
+  border-radius: var(--radius-xl);
+  border: 3px solid #fff;
+}
+.feedback--success {
+  background: linear-gradient(180deg, #f1fcf5, #d9f3e4);
+  box-shadow: 0 7px 0 #8fd3ac, var(--shadow-card);
+}
+.feedback--hint {
+  background: linear-gradient(180deg, #fff9e3, #ffecb0);
+  box-shadow: 0 7px 0 #e1b54a, var(--shadow-card);
+}
+.feedback__title {
+  font-size: 1.5rem;
+  font-weight: 900;
+  line-height: 1.2;
+}
+.feedback__title:focus {
+  outline: none;
+}
+.feedback__title:focus-visible {
+  box-shadow: none;
+  text-decoration: underline 3px var(--brand);
+}
+.feedback__message {
+  margin-top: 6px;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+.feedback__extra {
+  margin-top: 12px;
+}
+.feedback__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 230px;
+}
+
+.hint-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.hint-chips .chip {
+  font-size: 0.92rem;
+  padding: 0.5em 1em;
+}
+.hint-chips svg {
+  color: var(--brand-ink);
+}
+
+/* =========================================================
+   Tarjetas de estadística
+   ========================================================= */
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 22px;
+  box-shadow: 0 5px 0 var(--stat-edge), var(--shadow-soft);
+}
+.stat-card__icon {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  color: #fff;
+  background: var(--stat-color);
+  box-shadow: 0 4px 0 var(--stat-edge), inset 0 0 0 3px rgba(255, 255, 255, 0.4);
+}
+.stat-card__text {
+  display: flex;
+  flex-direction: column;
+}
+.stat-card__value {
+  font-size: 1.9rem;
+  font-weight: 900;
+  line-height: 1.05;
+}
+.stat-card__label {
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+/* =========================================================
+   Confeti
+   ========================================================= */
+.confetti {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.confetti__piece {
+  position: absolute;
+  width: 12px;
+  height: 22px;
+  border-radius: 4px;
+  transform: rotate(var(--rot));
+  opacity: 0.9;
+}
+.confetti__piece--wide {
+  width: 26px;
+  height: 14px;
+}
+html[data-motion='on'] .confetti__piece {
+  animation-name: confetti-sway;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+@keyframes confetti-sway {
+  from { transform: translateY(-8px) rotate(var(--rot)); }
+  to { transform: translateY(14px) rotate(calc(var(--rot) + 40deg)); }
+}
+
+/* =========================================================
+   Responsivo de componentes
+   ========================================================= */
+@media (max-width: 860px) {
+  .feedback {
+    grid-template-columns: auto 1fr;
+  }
+  .feedback__actions {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-width: 0;
+  }
+  .feedback__actions > * {
+    flex: 1 1 200px;
+  }
+}
+
+@media (max-width: 600px) {
+  .feedback {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+  .hint-chips {
+    justify-content: center;
+  }
+  .activity-header {
+    grid-template-columns: 1fr 1fr;
+  }
+  .activity-header__center {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+  .emotion-card__face {
+    width: 58px;
+    height: 58px;
+  }
+  .emotion-card__name {
+    font-size: 1.2rem;
+  }
+}

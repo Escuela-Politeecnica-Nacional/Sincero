@@ -1,0 +1,105 @@
+/* =========================================================
+   Sincero · tokens de diseño
+   ========================================================= */
+:root {
+  /* Tipografía */
+  --font-family: 'Nunito', 'Trebuchet MS', system-ui, sans-serif;
+
+  /* Texto */
+  --ink: #1f2a44;
+  --ink-soft: #46526e;
+  --ink-muted: #66718b;
+
+  /* Cielo y fondos */
+  --sky-top: #a6d2fb;
+  --sky-mid: #c6e2fd;
+  --sky-bottom: #e3f0fe;
+  --hill: #cdeedc;
+  --hill-shadow: #bfe6cf;
+  --surface: #ffffff;
+  --surface-soft: #f5f7ff;
+  --surface-muted: #eef1f7;
+  --surface-locked: #eceff5;
+
+  /* Marca */
+  --brand: #4a5fd6;
+  --brand-strong: #3846b8;
+  --brand-ink: #2f3aa0;
+  --brand-soft: #e7eaff;
+  --brand-border: #c7cdf6;
+  --navy: #1f2b62;
+  --navy-deep: #182252;
+  --caption-bg: #2d3a58;
+
+  /* Acciones */
+  --yellow-1: #ffd75a;
+  --yellow-2: #f6b829;
+  --yellow-edge: #c98b10;
+  --yellow-ink: #3a2a00;
+  --yellow-soft: #fff4cf;
+
+  --green: #3aa872;
+  --green-strong: #2a8a5c;
+  --green-soft: #def5e8;
+  --green-ink: #1d6b45;
+
+  --red-soft: #ffe0de;
+  --orange-ink: #b4501c;
+  --gold-ink: #8a6200;
+
+  /* Formas */
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-pill: 999px;
+
+  /* Sombras */
+  --shadow-card: 0 10px 28px rgba(39, 72, 140, 0.12), 0 2px 6px rgba(39, 72, 140, 0.08);
+  --shadow-soft: 0 6px 16px rgba(39, 72, 140, 0.1);
+  --shadow-float: 0 18px 40px rgba(31, 43, 98, 0.18);
+
+  /* Foco visible */
+  --focus-ring: 0 0 0 4px #ffffff, 0 0 0 8px #2f3aa0;
+
+  /* Espaciado */
+  --page-max: 1320px;
+  --gap: clamp(14px, 1.6vw, 24px);
+}
+
+/* ---------- Tamaño del texto ---------- */
+html[data-text-size='pequeno'] { font-size: 100%; }
+html[data-text-size='mediano'] { font-size: 112.5%; }
+html[data-text-size='grande']  { font-size: 125%; }
+
+/* ---------- Alto contraste ---------- */
+html[data-contrast='alto'] {
+  --ink: #000000;
+  --ink-soft: #111111;
+  --ink-muted: #222222;
+  --brand: #1d2a9e;
+  --brand-strong: #111a75;
+  --brand-ink: #0f176b;
+  --brand-border: #1d2a9e;
+  --green-ink: #0b4a2c;
+  --orange-ink: #7a2e05;
+  --gold-ink: #523800;
+  --surface-soft: #ffffff;
+  --surface-locked: #e4e6eb;
+  --sky-top: #d9ebff;
+  --sky-mid: #e8f2ff;
+  --sky-bottom: #f4f9ff;
+}
+
+/* ---------- Modo calma: colores más suaves ---------- */
+html[data-calm='true'] {
+  --sky-top: #cfe3f3;
+  --sky-mid: #dde9f4;
+  --sky-bottom: #ecf2f8;
+  --hill: #dbeee3;
+  --yellow-1: #f6dc8f;
+  --yellow-2: #ecc867;
+  --yellow-edge: #c9a447;
+  --brand: #5a68b8;
+  --brand-strong: #4a579f;
+}
